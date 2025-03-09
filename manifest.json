@@ -1,0 +1,17 @@
+{
+    "name" : "Accessibilitize",
+    "description": "Chrome Extention for making websites more colour-blind and dyslexia friendly",
+    "version" : "1.0",
+    "manifest_version" : 3,
+    "action" : {
+        "default_popup" : "index.html",
+        "default_icon" : ""
+    },
+    "background" : {
+        "serviceworker" : "scripts/background.js"
+    },
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts" : {
+        "js" : ["scripts/background.js"]
+    }
+}
