@@ -1,25 +1,33 @@
 {
-    "name" : "Accessibilitize",
-    "description": "Chrome Extention for making websites more colour-blind and dyslexia friendly",
-    "version" : "1.0",
-    "icons" : {
-        "16" : "/assets/icon16.png",
-        "32" : "/assets/icon32.png",
-        "64" : "/assets/icon64.png"
-    },
-    "manifest_version" : 3,
-    "action" : {
-        "default_popup" : "index.html"
-    },
-    "background" : {
-        "serviceworker" : "scripts/background.js",
-        "type" : "module"
-    },
-    "permissions": ["activeTab", "scripting"],
-    "host_permissions" : [
-        "http://*/*", "https://*/*"
-    ],
-    "content_security_policy": {
+  "name": "Accessibilitize",
+  "description": "Chrome Extention for making websites more colour-blind and dyslexia friendly",
+  "version": "1.0",
+  "icons": {
+    "16": "/assets/icon16.png",
+    "32": "/assets/icon32.png",
+    "64": "/assets/icon64.png"
+  },
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "serviceworker": "scripts/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": [
+        "scripts/util/forColourBlind.css",
+        "scripts/util/forDyslexia.css"
+      ],
+      "js": ["scripts/util/buttons.js", "scripts/background.js"]
+    }
+  ],
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';",
     "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
   }
