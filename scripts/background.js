@@ -36,14 +36,25 @@ async function dyslexia() {
 
 async function colourBlindness() {
     let [tab] = await chrome.tabs.query({ active: true});
+    let doc;
     console.log(On);
     if (On) {
         if (!cOn) {
             cOn = true;
             try {
+                await chrome.scripting.excecuteScript({
+                    target: {tabId: tab.id},
+                    func: () => {
+                        if (document.background === "white") {
+                            doc = "./forColourBlindB.css";
+                        } else {
+                            doc = "./forColourBlindW.css";
+                        }
+                    }
+                });
                 chrome.scripting.insertCSS({
                     target: {tabId: tab.id},
-                    files: ["./forColourBlind.css"],
+                    files: [doc],
                     origin: USER
                 });
             } catch {
