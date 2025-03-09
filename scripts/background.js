@@ -1,42 +1,58 @@
+let dOn = false;
+let cOn = false;
 
 
-const forDyslexia = () => {
-    const dyslexiaStyles = ['font-family: Verdana, Arial, sans-serif !important;',
-        'font-size: min(16px) !important;',
-        'letter-spacing: 0.35ch !important;',
-        'word-spacing: letter-spacing * 3.5 !important;',
-        'line-height: word-spacing * 1.5 !important;'
-    ];
-
-    let style = document.createElement("style");
-    let a;
-    let x = document.createTextNode("body {");
-    for (let style in dyslexiaStyles) {
-        a = document.createTextNode(style);
-        x.appendChild(a);
+async function dyslexia() {
+    let [tab] = await chrome.tabs.query({ active: true});
+    if (!dOn) {
+        dOn = true;
+        try {
+            chrome.scripting.insertCSS({
+                target: {tabId: tab.id},
+                files: ["./forDyslexia.css"],
+                origin: USER
+            });
+        } catch {
+            console.error(`failed to insert CSS: ${err}`);
+        }
+    } else {
+        dOn = false;
+        try {
+            chrome.scripting.removeCSS({
+                target: {tabId: tab.id},
+                files: ["./forDyslexia.css"],
+            });
+        } catch {
+            console.error(`failed to remove CSS: ${err}`);
+        }
     }
-    a = document.createTextNode("}");
-    x.appendChild(a);
-
-    a = document.createTextNode("i { font-style: normal !important");
-    x.appendChild(a);
-    a = document.createTextNode("font-weight: bold !important");
-    x.appendChild(a);
-
-    document.head.appendChild(x);
 }
 
-
-const forRG = () => {
-    
+async function colourBlindness() {
+    let [tab] = await chrome.tabs.query({ active: true});
+    if (!cOn) {
+        cOn = true;
+        try {
+            chrome.scripting.insertCSS({
+                target: {tabId: tab.id},
+                files: ["./forColourBlind.css"],
+                origin: USER
+            });
+        } catch {
+            console.error(`failed to insert CSS: ${err}`);
+        }
+    } else {
+        cOn = false;
+        try {
+            chrome.scripting.removeCSS({
+                target: {tabId: tab.id},
+                files: ["./forColourBlind.css"],
+            });
+        } catch {
+            console.error(`failed to remove CSS: ${err}`);
+        }
+    }
 }
 
-
-const forYB = () => {
-
-}
-
-const forC = () => {
-
-}
-
+document.getElementsByClassName("dyslexia").addEventListener("change", dyslexia);
+document.getElementsByClassName("decrease").addEventListener("click", colourBlindness);

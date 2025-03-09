@@ -43,29 +43,29 @@
         </div>
       <div class="adjustsize">
         <p>
-          <button class="sizebtn"><span class="fa-solid fa-magnifying-glass-minus fa-lg"></span></button>Adjust Font Size
-          <button class="sizebtn"><span class="fa-solid fa-magnifying-glass-plus fa-lg"></span></button></p>
+          <button class="sizebtn" id="decrease"><span class="fa-solid fa-magnifying-glass-minus fa-lg"></span></button>Adjust Font Size
+          <button class="sizebtn" id="increase"><span class="fa-solid fa-magnifying-glass-plus fa-lg"></span></button></p>
       </div> 
 
       <div class="dyslexia">
-        <h4 class="dyslexia-text">Dyslexia</h4>
+        <h4 class="dyslexia-text">More Readable Font</h4>
         <label class="switch">
-          <input type="checkbox">
+          <input type="checkbox" id="toggle-font">
           <span class="slider round"></span>
         </label>
       </div>
 
       <div class="colourBlindness">
-        <h4>Colour Blindness</h4>
-        <input type="radio" id="redgreen" name="cblindness">
-        <label for="redgreen">Red-Green</label>
-        <input type="radio" id="yellowBlue" name="cblindness">
-        <label for="yellowBlue">Yellow-Blue</label>
-        <input type="radio" id="complete" name="cblindness">
-        <label for="complete">Complete</label>
+        <h4 class="colourBlindness-text">Higher Contrast Font</h4>
+        <label class="switch">
+            <input type="checkbox" id="toggle-colour">
+            <span class="slider round"></span>
+        </label>
       </div>
+
     </main>
 
-    <script src="./scripts/form.js"></script>
+    <script src="./scripts/buttons.js"></script>
+    <script src="./scripts/background.js"></script>
   </body>
 </html>
