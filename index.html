@@ -20,51 +20,15 @@
 
   <body>
     <header>
-        <img class="icon" src="images/scaler_icon.png" alt="scaler-icon" />
-        <h1 class="title" id="Title">The Recipe Scale-r</h1>  
+        <h1 class="title" id="Title">Accessibilitize</h1>  
       </header>
     <main>
       <article class="description">
         <p>
-          <strong>Warning</strong> Adjusting the scale of a recipe will likely
-          affect the cooking time. The time difference is non-linear and will
-          depend on the recipe.
+          Turn on this extention to get a more readable website.
         </p>
       </article>
-      <form id="form" action="/scripts/form.js">
-        <section class="recipe scale">
-          <label for="scale">Scale of recipe</label>
-          <input
-            type="number"
-            name="coefficient"
-            class="selectors"
-            id="scale"
-            placeholder="Number"
-            value="1"
-            min="0"
-            step="0.25"
-          />
-        </section>
-        <section class="recipe units">
-          <label for="unit">Unit of measurement</label>
-          <select id="unit" name="units" class="selectors">
-            <option value="default">Default (given units)</option>
-            <option value="cups">Cups (and smaller)</option>
-            <option value="half cups">1&#47;2 Cups (and smaller)</option>
-            <option value="quarter cups">1&#47;4 Cups (and smaller)</option>
-            <option value="tablespoons">Tablespoons (and smaller)</option>
-            <option value="teaspoons">Teaspoons (and smaller)</option>
-            <option value="lb">lb</option>
-            <option value="oz">oz</option>
-            <option value="floz">fl oz</option>
-            <option value="ml">mL</option>
-            <option value="mg">mg</option>
-            <option value="g">g</option>
-          </select>
-        </section>
-        <br />
-        <input class="recipe submit" type="submit" value="Apply" />
-      </form>
+      
     </main>
 
     <script src="./scripts/form.js"></script>
