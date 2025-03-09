@@ -11,10 +11,11 @@ async function changeFontSize(a) {
             }
         }
     });
+    console.log(a);
 }
 
 const inc = () => {changeFontSize(1)};
 const dec = () => {changeFontSize(0)};
 
-document.getElementsByClassName("increase").addEventListener("click", inc);
-document.getElementsByClassName("decrease").addEventListener("click", dec);
+document.getElementById("increase").addEventListener("click", inc);
+document.getElementById("decrease").addEventListener("click", dec);
