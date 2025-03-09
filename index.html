@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="accessility dyslexia colour-blind color-blind" />
+    <meta
+      name="keywords"
+      content="accessility dyslexia colour-blind color-blind"
+    />
     <meta
       name="description"
       content="The chrome extention for making websites more accessible"
@@ -12,7 +15,12 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link
       href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Cutive+Mono&display=swap"
       rel="stylesheet"
     />
@@ -20,15 +28,42 @@
 
   <body>
     <header>
-        <h1 class="title" id="Title">Accessibilitize</h1>  
-      </header>
+      <h1 class="title" id="Title">Accessibilitize</h1>
+    </header>
     <main>
       <article class="description">
-        <p>
-          Turn on this extention to get a more readable website.
-        </p>
+        <div class="desc">
+          <p class="turnondesc">Turn on this extention to get a more readable website.</p>
+          <!-- <input type="checkbox" /> -->
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
       </article>
-      
+        </div>
+      <div class="adjustsize">
+        <p>
+          <button class="sizebtn"><span class="fa-solid fa-magnifying-glass-minus fa-lg"></span></button>Adjust Font Size
+          <button class="sizebtn"><span class="fa-solid fa-magnifying-glass-plus fa-lg"></span></button></p>
+      </div> 
+
+      <div class="dyslexia">
+        <h4 class="dyslexia-text">Dyslexia</h4>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="colourBlindness">
+        <h4>Colour Blindness</h4>
+        <input type="radio" id="redgreen" name="cblindness">
+        <label for="redgreen">Red-Green</label>
+        <input type="radio" id="yellowBlue" name="cblindness">
+        <label for="yellowBlue">Yellow-Blue</label>
+        <input type="radio" id="complete" name="cblindness">
+        <label for="complete">Complete</label>
+      </div>
     </main>
 
     <script src="./scripts/form.js"></script>
